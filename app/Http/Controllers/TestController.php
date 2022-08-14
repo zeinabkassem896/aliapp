@@ -14,8 +14,6 @@ class TestController extends Controller
      */
     public function index()
     {
-        $test = Test::all();
-        dd($test);
         return view('welcome');
     }
 
