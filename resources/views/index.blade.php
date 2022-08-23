@@ -2,18 +2,27 @@
 
 @section('content')
   
-  <div class="col p-4">
-        <h1 class="display-4">Collapsing Sidebar Menu</h1>
-        <div class="card">
-            <h5 class="card-header font-weight-light">Requirements</h5>
+        
+       
+        <div class="cards">
+            {{-- <h5 class="card-header font-weight-light">Requirements</h5>
             <div class="card-body">
                 <ul>
                     <li>JQuery</li>
                     <li>Bootstrap 4.3</li>
                     <li>FontAwesome</li>
                 </ul>
+            </div> --}}
+            <div class="display-end">
+                <div class="money-card">
+                    <div>100 $</div>
+                    <div> 200 000 LL</div>
+                </div>
+                <div class="money-card">
+                    kassem
+                </div>
             </div>
+            
         </div>
-    </div><!-- Main Col END -->
 
     @endsection

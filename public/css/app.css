@@ -4,7 +4,7 @@
 }
 #sidebar-container {
     min-height: 100vh;   
-    background-color: #333;
+    background-color: #2b6777;
     padding: 0;
 }
 
@@ -19,7 +19,7 @@
 /* Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
-    color: white;
+    color: #fff;
 }
 
 /* Submenu item*/
@@ -33,15 +33,15 @@
 
 /* Separators */
 .sidebar-separator-title {
-    background-color: #333;
+    background-color: #2b6777;
     height: 35px;
 }
 .sidebar-separator {
-    background-color: #333;
+    background-color: #2b6777;
     height: 25px;
 }
 .logo-separator {
-    background-color: #333;    
+    background-color: #2b6777;    
     height: 60px;
 }
 
@@ -61,3 +61,35 @@
   text-align: right;
   padding-left: 10px;
 }
+.display-end{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.money-card{
+    height: 150px;
+    background-color: #52ab98;
+    width: 500px;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 35px;
+    color: white
+}
+.bg-primary-customise{
+    background-color: #fff;
+    color: #2b6777;
+    border-bottom: 2px solid #2b6777;
+}
+.list-group-item {
+    background-color: #2b6777 !important;
+}
+
+.list-group-item:hover {
+    background-color: #c8d8e4 !important;
+}
+.navbar-dark .navbar-brand{
+    color: #2b6777 !important;
+    
+
+
