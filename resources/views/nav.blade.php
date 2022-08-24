@@ -35,7 +35,7 @@
         <!-- Bootstrap List Group -->
         <ul class="list-group">
             <!-- Menu with submenu -->
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href={{route('home')}} class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa fa-home fa-fw mr-3">
                     </span>
@@ -43,7 +43,7 @@
                 </div>
             </a>
 
-             <a href="#" class="list-group-item list-group-item-action">
+             <a href={{route('transaction')}} class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fa-solid fa-list-order fa-fw mr-3">
                     </span>
@@ -77,20 +77,7 @@
     
 
       <div class="col p-4">
-        <h2 class="display-4 display-end">
-            <div>
-                @php
-                    echo(date("D: d-m-Y"));
-                @endphp
-            </div>
-            <div>
-                @php
-                    echo(date("h:i a"));
-                @endphp
-            </div>
         
-        </h2>
-        <hr/>
         @yield('content')
         
     </div>

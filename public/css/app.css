@@ -6,6 +6,7 @@
     min-height: 100vh;   
     background-color: #2b6777;
     padding: 0;
+    font-size: 21px;
 }
 
 /* Sidebar sizes when expanded and expanded */
@@ -74,7 +75,8 @@
     border-radius: 15px;
     padding: 15px;
     font-size: 35px;
-    color: white
+    color: white;
+    font-family: 'Rubik Dirt', cursive;
 }
 .bg-primary-customise{
     background-color: #fff;
@@ -88,8 +90,41 @@
 .list-group-item:hover {
     background-color: #c8d8e4 !important;
 }
-.navbar-dark .navbar-brand{
+.navbar-dark .navbar-brand, h2{
     color: #2b6777 !important;
-    
+    border-bottom: 2px solid white ;
+    padding-bottom: 10px;
+}
+h2{
+    margin-bottom: 30px
+}
+.outcome{
+    background-color: #ab5252;
+}
+.net{
+    background-color: #2b6777;
+}
+thead tr, .nav-link{
+    color: #2b6777 !important;
+    font-weight: bolder;
+    font-size: 20px;
+}
+tr{
+    border-bottom: 2px solid white !important;
+    color: white !important;
+    font-weight: bolder;
+    font-size: 25px;
+}
+.outcome-tr{
+    background-color: #ab5252 !important;
+   
+}
+.income-tr{
+    background-color: #52ab98 !important;
+
+}
+table{
+    border-top: 2px solid white !important
+}
 
 

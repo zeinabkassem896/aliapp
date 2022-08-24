@@ -13,8 +13,10 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/bootstrap-grid.min.css') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
-         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css" >
-
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Sansita+Swashed:wght@300;400&display=swap" rel="stylesheet"> 
 
 
 
@@ -23,7 +25,7 @@
  
     <body>
 
-       @include('index')
+       @include('nav')
 
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

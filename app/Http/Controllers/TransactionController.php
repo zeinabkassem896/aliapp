@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Test;
 
-class TestController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('transaction');
     }
 
     /**

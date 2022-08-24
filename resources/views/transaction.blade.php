@@ -1,41 +1,11 @@
 @extends('welcome')
-
 @extends('nav')
 
 @section('content')
   
-        <h2 class="display-4 display-end">
-            <div>
-                @php
-                    echo(date("D: d.m.Y"));
-                @endphp
-            </div>
-            <div>
-                @php
-                    echo(date("h:i a"));
-                @endphp
-            </div>
         
-        </h2>
        
-        <div class="cards">
-            <div class="display-end">
-                <div class="money-card  ">
-                    <div>100 $</div>
-                    <div> 200 000 LL</div>
-                </div>
-                <div class="money-card outcome">
-                    <div>100 $</div>
-                    <div> 200 000 LL</div>
-                </div>
-                 <div class="money-card net">
-                    <div>100 $</div>
-                    <div> 200 000 LL</div>
-                </div>
-            </div>
             
-        </div>
-        <br/><br/>
 
         <table class="table table-striped">
             <thead>
