@@ -43,13 +43,23 @@
                 </div>
             </a>
 
-             <a href={{route('transaction')}} class="list-group-item list-group-item-action">
+            <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa-solid fa-list-order fa-fw mr-3">
-                    </span>
-                    <span class="menu-collapsed">Transaction</span>
+                    <span class="fa fa-address-book fa-fw mr-3 "></span>
+                    <span class="menu-collapsed">Transactions</span>
                 </div>
             </a>
+            <!-- Submenu content -->
+            <div id='submenu3' class="collapse sidebar-submenu">
+                <a href={{route('transaction')}} class="list-group-item list-group-item-action text-white">
+                    <span class="menu-collapsed">All Transactions</span>
+                </a>
+            </div>
+              <div id='submenu3' class="collapse sidebar-submenu">
+                <a href={{route('add-client')}} class="list-group-item list-group-item-action text-white">
+                    <span class="menu-collapsed">Add Transaction</span>
+                </a>
+            </div>
            
  
             <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -62,6 +72,11 @@
             <div id='submenu2' class="collapse sidebar-submenu">
                 <a href="#" class="list-group-item list-group-item-action text-white">
                     <span class="menu-collapsed">All Clients</span>
+                </a>
+            </div>
+              <div id='submenu2' class="collapse sidebar-submenu">
+                <a href={{route('add-client')}} class="list-group-item list-group-item-action text-white">
+                    <span class="menu-collapsed">Add Client</span>
                 </a>
             </div>
            

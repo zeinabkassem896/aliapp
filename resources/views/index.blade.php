@@ -1,7 +1,5 @@
 @extends('welcome')
 
-@extends('nav')
-
 @section('content')
   
         <h2 class="display-4 display-end">

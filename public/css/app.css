@@ -3,7 +3,7 @@
     margin-right:0;
 }
 #sidebar-container {
-    min-height: 100vh;   
+    min-height: 93vh;   
     background-color: #2b6777;
     padding: 0;
     font-size: 21px;
@@ -126,5 +126,39 @@ tr{
 table{
     border-top: 2px solid white !important
 }
-
-
+.subtitle{
+    font-size: 40px !important;
+    font-weight: bold;
+    text-decoration: 2px dotted #2b6777;
+}
+.seperator{
+    border-bottom: 2px dotted #2b6777;
+}
+.btn-primary{
+    background-color: #2b6777!important;
+    border: 2px solid #2b6777 !important;
+    font-weight: bold !important;
+}
+.btn-primary:hover{
+    background-color: white !important;
+    color: #2b6777 !important;
+    border: 2px solid #2b6777 !important;
+}
+.flex-end{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.form-control:focus{
+    box-shadow:  0 0 0 0rem rgba(247, 54, 72, 0.25) !important;
+    border-color: #ced4da !important;
+}
+.form-control, .input-group-text{
+    color: #2b6777 !important
+}
+.add-button{
+    height: 50px
+}
+.hide{
+    display: none
+}

@@ -3,82 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
+use App\Models\Client;
+use App\Models\Location;
 
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function addClient()
     {
-        //
+        return view('add-client');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function addClientPost(Request $request)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $client = new Client;
+        $client->first_name = $request->fname;
+        $client->last_name = $request->lname;
+        $client->phone = $request->phone;
+        $client->home = $request->home;
+        $client->description = $request->description;
+        $client->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $location = new Location;
+        $location->city = $request->city;
+        $location->street = $request->street;
+        $location->floor = $request->floor;
+        $location->description = $request->location_description;
+        $location->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $location->clients()->attach($client->id);
+        
+        if($request->location_2 == 0){
+            $location = new Location;
+            $location->city = $request->city2;
+            $location->street = $request->street2;
+            $location->floor = $request->floor2;
+            $location->description = $request->description2;
+            $location->save();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+            $location->clients()->attach($client->id);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('add-client');
     }
 }

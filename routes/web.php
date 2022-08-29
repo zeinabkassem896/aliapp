@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ClientController;
+
 
 
 /*
@@ -19,7 +21,11 @@ use App\Http\Controllers\TransactionController;
 
 Route::get('/', [AppController::class, 'index'])->name('home');
 Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction');
-// Route::get('/', [TestController::class, 'index']);
+Route::post('/addclient', [ClientController::class, 'addClientPost'])->name('add-client-post');
+
+Route::get('/addclient', [ClientController::class, 'addClient'])->name('add-client');
+Route::post('/addclient', [ClientController::class, 'addClientPost'])->name('add-client-post');
+
 // Route::get('/', [TestController::class, 'index']);
 // Route::get('/', [TestController::class, 'index']);
 // Route::get('/', [TestController::class, 'index']);

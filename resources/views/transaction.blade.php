@@ -1,5 +1,4 @@
 @extends('welcome')
-@extends('nav')
 
 @section('content')
   
