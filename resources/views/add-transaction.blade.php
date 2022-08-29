@@ -2,31 +2,37 @@
 
 @section('content')
 
-    <form action={{route('add-client-post')}} method="POST">
+    <form action={{route('add-transaction-post')}} method="POST">
         @csrf
-        <input type="hidden" name="location_2" value="1" id="location_value" value="0">
+
+        @php
+        $today = date('Y') . '-' . date('m') . '-' . date('d');
+        @endphp
    
   
         <h2 class="display-4 display-end">
            
-            Add New Client
+            Add New Transaction
         </h2>
         <br/>
         <div class="row">
             <div class="col-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">First Name</span>
+                        <span class="input-group-text">Amout</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Firstname" aria-label="Firstname" aria-describedby="basic-addon1" name="fname">
+                    <input type="number" min="0" class="form-control" placeholder="100" aria-label="amount" aria-describedby="basic-addon1" name="amount">
                 </div>
             </div>
             <div class="col-6">
-            <div class="input-group mb-3">
+                <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Last Name</span>
+                        <label class="input-group-text" for="inputGroupSelect01">Currency</label>
                     </div>
-                    <input type="text" class="form-control" placeholder="Lastname" aria-label="Lastname" aria-describedby="basic-addon1" name="lname">
+                    <select class="custom-select form-control" name="currency">
+                        <option value="$">$</option>
+                        <option value="LL">LL</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -35,150 +41,38 @@
             <div class="col-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Phone</span>
+                        <label class="input-group-text" for="inputGroupSelect01">Type</label>
                     </div>
-                    <input type="text" class="form-control" placeholder="76190038" aria-label="Phone" aria-describedby="basic-addon1" name="phone">
+                    <select class="custom-select form-control" name="type">
+                        <option value="income">Income</option>
+                        <option value="outcome">Outcome</option>
+                    </select>
                 </div>
             </div>
             <div class="col-6">
+               <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    </div>
+                    <input type="date" value="<?php echo $today; ?>" class="form-control" aria-label="date" aria-describedby="basic-addon1" name="date">
+
+                   
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Home</span>
+                        <span class="input-group-text">Description</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="01477911" aria-label="Phone2" aria-describedby="basic-addon1" name="home">
+                    <input type="text" class="form-control" placeholder="Description .." aria-label="description" name="description">
                 </div>
             </div>
         </div>
 
          <br>
-        <div class="row">
-            <div class="col-12">
-               <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Description</span>
-                    </div>
-                    <textarea class="form-control" aria-label="Description" name="description"></textarea>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <br>
-         <div class="row">
-            <div class="col-6">
-                <h2 class="display-4 display-end subtitle"> Location </h2>
-            </div>
-            <div class="col-6 flex-end">
-               <div  class="btn btn-primary btn-lg add-button" id="add-button" onClick="showHideDiv()">+</div>
-            </div>
-        </div>
-        
-        <br>
-        <div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">City</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Dahye" aria-label="City" aria-describedby="basic-addon1" name="city">
-                    </div>
-                </div>
-                <div class="col-6">
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Street</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Hadi Nasrallah" aria-label="street" aria-describedby="basic-addon1" name="street">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-6">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Building</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Building" aria-label="building" aria-describedby="basic-addon1" name="building">
-                    </div>
-                </div>
-                <div class="col-6">
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Floor</span>
-                        </div>
-                        <input type="number" class="form-control" min="0" aria-label="floor" aria-describedby="basic-addon1" name="floor">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-12">
-                <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Description" name="location_description" ></textarea>
-                    </div>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="hide" id="location2_div">
-            <hr class="seperator">
-            <br>
-      
-            <div class="row">
-                <div class="col-6">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">City</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Dahye" aria-label="City" aria-describedby="basic-addon1" name="city2">
-                    </div>
-                </div>
-                <div class="col-6">
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Street</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Hadi Nasrallah" aria-label="Lastname" aria-describedby="basic-addon1" name="street2">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-6">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Building</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Building" aria-label="City" aria-describedby="basic-addon1" name="building2">
-                    </div>
-                </div>
-                <div class="col-6">
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Floor</span>
-                        </div>
-                        <input type="number" class="form-control" min="0" aria-label="floor" aria-describedby="basic-addon1" name="floor2">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-12">
-                <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Description" name="description2" ></textarea>
-                    </div>
-                </div>
-            </div>
-            <br>
-        </div>
 
         <br>
         <div class="row">

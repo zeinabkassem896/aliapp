@@ -19,16 +19,16 @@
         <div class="cards">
             <div class="display-end">
                 <div class="money-card  ">
-                    <div>100 $</div>
-                    <div> 200 000 LL</div>
+                    <div>{{number_format($sum_income_dollar,0,","," ")}} $</div>
+                    <div> {{number_format($sum_income_lebanese,0,","," ")}} LL</div>
                 </div>
                 <div class="money-card outcome">
-                    <div>100 $</div>
-                    <div> 200 000 LL</div>
+                    <div>{{number_format($sum_outcome_dollar,0,","," ")}} $</div>
+                    <div> {{number_format($sum_outcome_lebanese,0,","," ")}} LL</div>
                 </div>
                  <div class="money-card net">
-                    <div>100 $</div>
-                    <div> 200 000 LL</div>
+                    <div>{{number_format($total_dollar,0,","," ")}} $</div>
+                    <div>{{number_format($total_lebanese,0,","," ")}} LL</div>
                 </div>
             </div>
             
@@ -45,24 +45,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="outcome-tr">
-                    <td >1</th>
-                    <td>100</td>
-                    <td></td>
-                    <td>hello dear</td>
+            @foreach($transaction as $key=>$each)
+                <tr class="@if($each->type == 'outcome') outcome-tr @else income-tr @endif">
+                    <td >{{$key+1}}</th>
+                    <td>@if($each->currency == '$') {{number_format($each->amount,0,","," ")}} @endif</td>
+                    <td>@if($each->currency == 'LL') {{number_format($each->amount,0,","," ")}} @endif</td>
+                    <td>{{$each->description}}</td>
                 </tr>
-                <tr class="income-tr">
-                    <td>2</th>
-                    <td>1000</td>
-                    <td>200 000</td>
-                    <td>@fat</td>
-                </tr>
-                <tr class="income-tr">
-                    <td >1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
+                @endforeach
+               
             </tbody>
             </table>
 

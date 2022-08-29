@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Test;
+use App\Models\Transition;
 
 class AppController extends Controller
 {
@@ -14,72 +14,17 @@ class AppController extends Controller
      */
     public function index()
     {
-        return view('index');
-    }
+        $transaction = Transition::where('created_at', date('Y-m-d'))->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $sum_income_dollar = Transition::where('type','income')->where('currency','$')->sum('amount');
+        $sum_income_lebanese = Transition::where('type','income')->where('currency','LL')->sum('amount');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $sum_outcome_dollar = Transition::where('type','outcome')->where('currency','$')->sum('amount');
+        $sum_outcome_lebanese = Transition::where('type','outcome')->where('currency','LL')->sum('amount');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $total_lebanese = $sum_income_lebanese - $sum_outcome_lebanese;
+        $total_dollar = $sum_income_dollar - $sum_outcome_dollar;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('index',compact('transaction','sum_income_dollar', 'sum_income_lebanese', 'sum_outcome_dollar', 'sum_outcome_lebanese', 'total_lebanese', 'total_dollar'));
     }
 }

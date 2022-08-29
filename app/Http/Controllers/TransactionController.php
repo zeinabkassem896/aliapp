@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Transition;
+
 
 class TransactionController extends Controller
 {
@@ -11,74 +13,72 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($date=NULL)
     {
-        return view('transaction');
+        if($date == NULL){
+            $date = date('Y') . '-' . date('m') . '-' . date('d');
+        }
+
+        $transaction = Transition::where('created_at', $date)->get();
+
+        $transaction_income_dollar = Transition::where('created_at', $date)->where('type','income')->where('currency','$')->sum('amount');
+        $transaction_income_lebanese = Transition::where('created_at', $date)->where('type','income')->where('currency','LL')->sum('amount');
+
+        $transaction_outcome_dollar = Transition::where('created_at', $date)->where('type','outcome')->where('currency','$')->sum('amount');
+        $transaction_outcome_lebanese = Transition::where('created_at', $date)->where('type','outcome')->where('currency','LL')->sum('amount');
+
+        $transaction_net_dollar = $transaction_income_dollar - $transaction_outcome_dollar;
+        $transaction_net_lebanese = $transaction_income_lebanese - $transaction_outcome_lebanese;
+
+        $date_format = date_format(date_create($date),"D: d.m.Y");
+
+        return view('transaction',compact('transaction','date','date_format','transaction_income_dollar','transaction_income_lebanese','transaction_outcome_dollar','transaction_outcome_lebanese','transaction_net_dollar','transaction_net_lebanese'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function addTransaction()
     {
-        //
+        return view('add-transaction');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function addTransactionPost(Request $request)
     {
-        //
-    }
+        $transaction = new Transition;
+        $transaction->type = $request->type;
+        $transaction->amount = $request->amount;
+        $transaction->currency = $request->currency;
+        $transaction->created_at = $request->date;
+        $transaction->description = $request->description;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $latest_transaction = Transition::orderBy('id', 'DESC')->first();
+        if($latest_transaction != null){
+            $total_dollar =  $latest_transaction->total_dollar;
+            $total_lebanese =  $latest_transaction->total_lebanese;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        }
+        else{
+            $total_dollar =  0;
+            $total_lebanese =  0;
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        if($request->currency =='$'){
+            if($request->type == 'income')
+                $total_dollar +=  $request->amount;
+            else
+                $total_dollar -=  $request->amount;
+        }
+        else{
+            if($request->type == 'income')
+                $total_lebanese +=  $request->amount;
+            else
+                $total_lebanese -=  $request->amount;
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $transaction->total_lebanese = $total_lebanese;
+        $transaction->total_dollar = $total_dollar;
+
+        $transaction->save();
+
+        return redirect()->route('home');
+
     }
 }

@@ -56,7 +56,7 @@
                 </a>
             </div>
               <div id='submenu3' class="collapse sidebar-submenu">
-                <a href={{route('add-client')}} class="list-group-item list-group-item-action text-white">
+                <a href={{route('add-transaction')}} class="list-group-item list-group-item-action text-white">
                     <span class="menu-collapsed">Add Transaction</span>
                 </a>
             </div>
