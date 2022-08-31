@@ -138,6 +138,7 @@ table{
     background-color: #2b6777!important;
     border: 2px solid #2b6777 !important;
     font-weight: bold !important;
+    color: white !important;
 }
 .btn-primary:hover{
     background-color: white !important;
@@ -161,4 +162,22 @@ table{
 }
 .hide{
     display: none
+}
+.tr_client{
+    background-color: #2b6777 !important;
+}
+.tr_client2{
+    color: #2b6777 !important;
+    background-color: #d0d7da !important;
+}
+.btn-primary2{
+    background-color: white!important;
+    border: 2px solid white !important;
+    color: #2b6777 !important;
+    font-weight: bold !important;
+}
+.btn-primary2:hover{
+    background-color: #d0d7da  !important;
+ 
+    border: 2px solid #d0d7da  !important;
 }

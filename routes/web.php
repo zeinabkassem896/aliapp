@@ -26,5 +26,8 @@ Route::get('/transaction/{date?}', [TransactionController::class, 'index'])->nam
 Route::get('/addtransaction', [TransactionController::class, 'addTransaction'])->name('add-transaction');
 Route::post('/addtransaction', [TransactionController::class, 'addTransactionPost'])->name('add-transaction-post');
 
+Route::get('/client', [ClientController::class, 'index'])->name('client');
 Route::get('/addclient', [ClientController::class, 'addClient'])->name('add-client');
 Route::post('/addclient', [ClientController::class, 'addClientPost'])->name('add-client-post');
+Route::get('/editclient/{id}', [ClientController::class, 'edit'])->name('edit-client');
+

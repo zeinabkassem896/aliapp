@@ -70,7 +70,7 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action text-white">
+                <a href={{route('client')}} class="list-group-item list-group-item-action text-white">
                     <span class="menu-collapsed">All Clients</span>
                 </a>
             </div>
