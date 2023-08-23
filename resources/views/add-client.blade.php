@@ -41,7 +41,7 @@
             <div class="col-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Phone:</span>
+                        <span class="input-group-text" id="basic-addon1">Phone</span>
                     </div>
                     <input type="text" class="form-control" placeholder="76190038" aria-label="Phone" aria-describedby="basic-addon1" name="phone"  @if(!empty($client)) value="{{$client->phone}}" @endif>
                 </div>
@@ -49,7 +49,7 @@
             <div class="col-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Home</span>
+                        <span class="input-group-text" id="basic-addon1">Home </span>
                     </div>
                     <input type="text" class="form-control" placeholder="01477911" aria-label="Phone2" aria-describedby="basic-addon1" name="home" @if(!empty($client)) value="{{$client->home}}" @endif>
                 </div>

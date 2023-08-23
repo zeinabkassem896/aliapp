@@ -7,7 +7,7 @@
                 Clients
             </div>
             <div>
-                <a href="{{route('add-client')}}" class="btn btn-primary btn-lg">Add New Client</a>
+                <a href="{{route('add-client')}}" class="btn btn-primary btn-lg">Add New Client </a>
             </div>
         
         </h2>
